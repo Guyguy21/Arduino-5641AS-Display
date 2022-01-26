@@ -6,7 +6,7 @@ Code to work with the Arduino 5641AS 4-Digit 8-Segment Display
 This library only works with a single wiring configuration as follows:
 
 
-
+```
                        7  6  5  4  3  2
                        |  |  |  |  |  |
                        |  |  |  |  |  |
@@ -19,6 +19,8 @@ This library only works with a single wiring configuration as follows:
                        |   |  |  |  |  |
                        |   |  |  |  |  |
                       13  12  X  10 9  8
+  
+```
 
 There are 12 pins on the module, with 11 of them leading to corresponding digital outputs as marked by the above numbers.
 
@@ -39,7 +41,7 @@ Click on your folder name in the menu, and the library should be successfully im
 # Coding 
 
 Firstly, in the setup() segment of code, you must activate your digital output pins as such:
-
+```
 pinMode(2,OUTPUT);
 pinMode(3,OUTPUT);
 pinMode(4,OUTPUT);
@@ -52,7 +54,7 @@ pinMode(10,OUTPUT);
 pinMode(11,OUTPUT);
 pinMode(12,OUTPUT);
 pinMode(13,OUTPUT);
-
+```
 Otherwise, the board won't know what to do with the instructions.
 
 This code works by declaring an object of class "LEDWrite", and then calling method "writeNumber()" of that object to output a number.
@@ -60,7 +62,7 @@ This code works by declaring an object of class "LEDWrite", and then calling met
 writeNumber(int Digit, int Number) takes two integer inputs, the first ranging from 1-4 and selecting the digit from left to right, and the second ranging from 0-9 and selecting the number to display. For example, writeNumber(2,3) would output the number 3 on the second slot.
 
 # Code example
-
+``` Arduino
 LEDWrite writer;
 
 void loop() {
@@ -75,7 +77,7 @@ writer.writeNumber(4,4);
 delay(1000);
 
 }
-
+```
 The above would declare an object 'writer' of class LEDWrite, and the loop would sequentially display 1---, -2--, --3-, ---4.
 
 
